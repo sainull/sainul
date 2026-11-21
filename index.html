@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Hari Guru Nasional</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #182848, #4b6cb7);
+  overflow: hidden;
+  color: white;
+}
+
+.container {
+  width: 90%;
+  max-width: 450px;
+  padding: 35px 25px;
+  text-align: center;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px #0005;
+  animation: muncul 2s ease;
+  z-index: 2;
+}
+
+@keyframes muncul {
+  from {opacity: 0; transform: translateY(50px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.bunga {
+  font-size: 55px;
+  animation: putar 4s infinite alternate;
+}
+
+@keyframes putar {
+  from {transform: rotate(-15deg);}
+  to {transform: rotate(15deg);}
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: 30px;
+  color: #ffe9a8;
+  text-shadow: 0 0 15px #ffd700;
+}
+
+h2 {
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #f1f1f1;
+}
+
+button {
+  margin-top: 25px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #ffe9a8;
+  color: #182848;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: white;
+}
+
+#pesan {
+  display: none;
+  margin-top: 20px;
+  animation: muncul 1.5s;
+}
+
+.hiasan {
+  position: absolute;
+  top: -30px;
+  animation: jatuh linear infinite;
+  pointer-events: none;
+}
+
+@keyframes jatuh {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="bunga">🌻</div>
+
+  <h1>Selamat Hari Guru Nasional</h1>
+  <h2>dari inul buat ibu suki</h2>
+
+  <h2>25 November 2026</h2>
+
+  <p>
+    Selamat Hari Guru Nasional. Jasamu akan selalu menjadi bagian dari cerita kami. ❤️.
+  </p>
+
+  <button onclick="bukaPesan()">
+    Buka Pesan Spesial ❤️
+  </button>
+
+  <div id="pesan">
+    <h2>Untuk Guruku Tercinta 💐</h2>
+    <p>
+      Selamat Hari Guru untuk Wali Kelas terbaik ibu sukilat! 
+      Terima kasih sudah menjadi pembimbing, penasihat, sekaligus orang 
+      tua kedua bagi kami di sekolah. Maaf atas segala kesalahan dan kenakalan kami selama ini. Semoga segala ilmu, kesabaran, dan kebaikan yang telah diberikan menjadi amal kebaikan yang tak terputus. ❤️
+      <br><br>
+      <b>Wali kelas bukan sekadar guru, tetapi juga orang tua kedua bagi kami di sekolah. Selamat Hari Guru! ❤️.</b>
+      <br><br>
+      ❤️ Terima kasih, Guruku!
+    </p>
+  </div>
+
+  <footer>
+    Dibuat dengan ❤️ untuk walas kami ibu sukilat
+  </footer>
+</div>
+
+<script>
+function bukaPesan() {
+  document.getElementById("pesan").style.display = "block";
+}
+
+const simbol = ["🌸", "💖", "🌼", "✨", "🌻"];
+
+function buatHiasan() {
+  const elemen = document.createElement("div");
+  elemen.className = "hiasan";
+  elemen.innerHTML =
+    simbol[Math.floor(Math.random() * simbol.length)];
+
+  elemen.style.left = Math.random() * 100 + "vw";
+  elemen.style.animationDuration =
+    (Math.random() * 5 + 4) + "s";
+  elemen.style.fontSize =
+    (Math.random() * 15 + 15) + "px";
+
+  document.body.appendChild(elemen);
+
+  setTimeout(() => elemen.remove(), 9000);
+}
+
+setInterval(buatHiasan, 400);
+</script>
+
+</body>
+</html>
